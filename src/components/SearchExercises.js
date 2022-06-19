@@ -34,6 +34,20 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
       );
       setSearch("");
       setExercises(searchedExercises);
+      window.scrollTo({ top: 1500, left: 100, behavior: "smooth" });
+    }
+  };
+
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) {
+      setSearch(searchValue);
+    }
+  };
+
+  const handleKeySearch = (e) => {
+    if (e.keyCode === 13) {
+      handleSearch();
     }
   };
 
@@ -51,8 +65,9 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
         <TextField
           height="76px"
           value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+          onChange={handleChange}
           placeholder="Search Exercises"
+          onKeyUp={handleKeySearch}
           type="text"
           sx={{
             input: { fontWeight: "700", border: "none", borderRadius: "4px" },
@@ -73,6 +88,8 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
             height: "56px",
             position: "abosulute",
             right: 0,
+            display: { xs: "block", sm: "inline-flex" },
+            margin: { xs: "10px auto", sm: "0" },
           }}
         >
           Search
@@ -80,6 +97,7 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
       </Box>
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollBar
+          isBodyParts
           data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}

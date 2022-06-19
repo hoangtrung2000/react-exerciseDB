@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ExerciseDetail from "./pages/ExerciseDetail";
-
+import ScrollTopButton from "./components/ScrollTopButton";
 function App() {
   return (
     <Box
@@ -21,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<ExerciseDetail />} />
       </Routes>
+      <ScrollTopButton />
       <Footer />
     </Box>
   );
