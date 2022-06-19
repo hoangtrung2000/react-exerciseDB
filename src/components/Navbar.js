@@ -40,6 +40,15 @@ function Navbar() {
         >
           Exercises
         </a>
+        <Link
+          to="/bmi"
+          style={{
+            textDecoration: "none",
+            color: "#3a1212",
+          }}
+        >
+          Your BMI
+        </Link>
       </Stack>
     </Stack>
   );
